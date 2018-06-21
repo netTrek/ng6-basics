@@ -1,5 +1,17 @@
-import { AfterViewInit, Component, ElementRef, OnInit, QueryList, ViewChild, ViewChildren, ViewEncapsulation } from '@angular/core';
+import {
+  AfterContentInit,
+  AfterViewInit,
+  Component,
+  ContentChild,
+  ElementRef,
+  OnInit,
+  QueryList,
+  ViewChild,
+  ViewChildren,
+  ViewEncapsulation
+} from '@angular/core';
 import { UserAvatarComponent } from './user-avatar/user-avatar.component';
+import { UserNameComponent } from './user-name/user-name.component';
 
 @Component ( {
   selector   : 'pta-user',
@@ -7,10 +19,20 @@ import { UserAvatarComponent } from './user-avatar/user-avatar.component';
   styleUrls  : [ './user.component.scss' ]/*,
   encapsulation: ViewEncapsulation.None*/
 } )
-export class UserComponent implements OnInit, AfterViewInit {
+export class UserComponent implements OnInit, AfterViewInit, AfterContentInit {
   name = 'saban ünlü';
 
-  @ViewChild( 'btn' ) // selector === referenzname im Template
+  /**
+   * traskludierte Inhalte ermitteln
+   */
+
+  @ContentChild ( UserNameComponent )
+  userName: UserNameComponent;
+
+  /**
+   * Elemente aus Vorlage ermitteln
+   */
+  @ViewChild ( 'btn' ) // selector === referenzname im Template
   btn: ElementRef<HTMLButtonElement>;
 
   @ViewChild ( UserAvatarComponent )
@@ -25,12 +47,15 @@ export class UserComponent implements OnInit, AfterViewInit {
 
   ngAfterViewInit (): void {
     console.log ( this.userAvatar,
-      this.userAvatars.toArray() );
+      this.userAvatars.toArray () );
     console.log ( this.btn );
   }
 
   ngOnInit (): void {
   }
 
+  ngAfterContentInit (): void {
+    console.log ( this.userName );
+  }
 
 }
