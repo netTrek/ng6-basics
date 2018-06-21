@@ -1,61 +1,21 @@
-import {
-  AfterContentInit,
-  AfterViewInit,
-  Component,
-  ContentChild,
-  ElementRef,
-  OnInit,
-  QueryList,
-  ViewChild,
-  ViewChildren,
-  ViewEncapsulation
-} from '@angular/core';
-import { UserAvatarComponent } from './user-avatar/user-avatar.component';
-import { UserNameComponent } from './user-name/user-name.component';
+import { Component, OnInit } from '@angular/core';
 
 @Component ( {
   selector   : 'pta-user',
   templateUrl: './user.component.html',
-  styleUrls  : [ './user.component.scss' ]/*,
-  encapsulation: ViewEncapsulation.None*/
+  styleUrls  : [ './user.component.scss' ]
 } )
-export class UserComponent implements OnInit, AfterViewInit, AfterContentInit {
+export class UserComponent implements OnInit {
+  defaultPrefix = 'Herr ';
   name = 'saban ünlü';
+  nameWithPrefix: string;
 
-  /**
-   * traskludierte Inhalte ermitteln
-   */
-
-  @ContentChild ( UserNameComponent )
-  userName: UserNameComponent;
-
-  /**
-   * Elemente aus Vorlage ermitteln
-   */
-  @ViewChild ( 'btn' ) // selector === referenzname im Template
-  btn: ElementRef<HTMLButtonElement>;
-
-  @ViewChild ( UserAvatarComponent )
-  userAvatar: UserAvatarComponent;
-
-  @ViewChildren ( UserAvatarComponent )
-  userAvatars: QueryList<UserAvatarComponent>;
-
-  onClick () {
-    this.name = 'angular rocks';
-  }
-
-  ngAfterViewInit (): void {
-    console.log ( this.userAvatar,
-      this.userAvatars.toArray () );
-    console.log ( this.btn );
+  getName ( prefix: string = '' ): string {
+    return `${prefix}${this.name}`;
   }
 
   ngOnInit (): void {
-  }
-
-  ngAfterContentInit (): void {
-    console.log ( this.userName );
+    this.nameWithPrefix = `${this.defaultPrefix} ${this.name}`;
   }
 
 }

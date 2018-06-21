@@ -1,5 +1,13 @@
 <h1>User Works {{name}}</h1>
-<button #btn (click)="onClick()">say hello</button>
-<pta-user-avatar></pta-user-avatar>
-<ng-content></ng-content>
+<h1>User Works {{name + 'test'}}</h1>
+<!--
+so nicht - weil blöd
+<h1>User Works {{ 1 + 2 }}</h1>
+-->
 
+<!--
+so bitte nicht - teuer wegen Änderungserkennung
+<h1>User Works {{ getName( defaultPrefix ) }}</h1>
+
+-->
+<h1>User Works {{ nameWithPrefix }}</h1>

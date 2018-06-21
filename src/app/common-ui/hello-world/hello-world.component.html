@@ -1,3 +1,25 @@
-<p>
+
+<!--
+VanilaJS:
+document.getElementsByTagName ('p')[0].innerHTML = 'saban <strong>ünlü</strong>'
+-->
+
+
+<p [style.color]="hrColor" [innerHTML]="htmlStr" [attr.aria-label]="label">
   hello-world works!
 </p>
+{{htmlStr}}
+<hr>
+<img src="../../../assets/img/cat.png" width="25%">
+<hr>
+<img [attr.src]="imgUrl" width="25%">
+<hr>
+<img [src]="imgUrl" width="25%">
+<hr>
+<div [style.width]="width+'px'">
+  hello
+</div>
+<hr>
+<div [style.width.px]="width">
+  alternativ mit Einheit in Bindung
+</div>
