@@ -1,1 +1,7 @@
-<div [style.width.%]="startValue"></div>
+<div [style.width.%]="countdown"
+     [class.danger]="countdown <= 30"
+     [class.warning]="countdown <= 50 && countdown > 30"
+></div>
+<hr>
+<button (click)="reset()">reset</button>
+<button (click)="restWithPayload( $event )">reset 2</button>

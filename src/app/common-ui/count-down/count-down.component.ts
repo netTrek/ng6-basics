@@ -7,7 +7,7 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 } )
 export class CountDownComponent implements OnInit, OnDestroy {
 
-  startValue = 100;
+  countdown = 100;
 
   private intervalId: number | undefined;
 
@@ -15,16 +15,31 @@ export class CountDownComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit () {
-    this.intervalId = window.setInterval ( () => {
-      this.startValue -= 10;
-      if ( this.startValue === 0 ) {
-        this.stopInterval ();
-      }
-    }, 1000 );
+    this.startInterval();
   }
 
   ngOnDestroy (): void {
     this.stopInterval ();
+  }
+
+  reset () {
+    this.countdown = 100;
+    this.startInterval();
+  }
+
+
+  restWithPayload ( event: Event ) {
+    console.log ( event );
+  }
+
+  private startInterval () {
+    this.stopInterval();
+    this.intervalId = window.setInterval ( () => {
+      this.countdown -= 10;
+      if ( this.countdown === 0 ) {
+        this.stopInterval ();
+      }
+    }, 1000 );
   }
 
   private stopInterval () {

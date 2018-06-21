@@ -8,12 +8,10 @@ import { environment } from '../environments/environment';
 } )
 export class AppComponent {
   title = 'pta';
+
+  myFirstName = 'saban ünlü';
+
   constructor () {
     console.log ( environment.endpoint );
-    if ( environment.production ) {
-      console.log ( 'ich bin prod' );
-    } else {
-      console.log ( 'ich bin dev');
-    }
   }
 }
