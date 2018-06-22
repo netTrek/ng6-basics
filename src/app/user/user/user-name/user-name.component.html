@@ -1,3 +1,6 @@
 <span>*</span>
 <strong>{{user.firstname | uppercase }} {{user.lastname | reverse }}</strong>
 <button>-</button>
+<hr>
+{{$appService.myVal | async}}
+<button (click)="$appService.chgVal()"> chg </button>

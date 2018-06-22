@@ -7,6 +7,8 @@ import { filter, map } from 'rxjs/operators';
 import { fromEvent } from 'rxjs/internal/observable/fromEvent';
 import { Subject } from 'rxjs/internal/Subject';
 import { BehaviorSubject } from 'rxjs/internal/BehaviorSubject';
+import { AppService } from './app.service';
+import { UserService } from './user/user.service';
 
 @Component ( {
   selector   : 'pta-root',
@@ -16,22 +18,27 @@ import { BehaviorSubject } from 'rxjs/internal/BehaviorSubject';
 export class AppComponent {
   title = 'pta';
 
-  list: User[] = [
-    { firstname: 'saban', lastname: 'ünlü' },
-    { firstname: 'peter', lastname: 'müller' },
-    { firstname: 'hans', lastname: 'mayer' }
-  ];
+  // list: User[] = [
+  //   { firstname: 'saban', lastname: 'ünlü' },
+  //   { firstname: 'peter', lastname: 'müller' },
+  //   { firstname: 'hans', lastname: 'mayer' }
+  // ];
 
   myFirstName = 'saban ünlü';
 
-  constructor () {
+  constructor ( public $appService: AppService, public $user: UserService  ) {
+
+    $appService.myVal.subscribe ( next => {
+      console.log ( 'new val', next );
+    } );
+
     // console.log ( environment.endpoint );
 
     // this.initOf ();
     // this.initCreate ();
     // this.initFromEvent ();
 
-    this.initHot ();
+    // this.initHot ();
   }
 
   private initOf () {

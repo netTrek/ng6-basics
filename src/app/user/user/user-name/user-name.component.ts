@@ -1,5 +1,6 @@
 import { Component, EventEmitter, HostBinding, HostListener, Input, OnInit, Output } from '@angular/core';
 import { User } from '../../user';
+import { AppService } from '../../../app.service';
 
 @Component ( {
   selector   : 'pta-user-name',
@@ -22,7 +23,7 @@ export class UserNameComponent implements OnInit {
   @Input ()
   color: undefined|string|number = undefined;
 
-  constructor () {
+  constructor ( public $appService: AppService ) {
   }
 
   ngOnInit () {
@@ -32,7 +33,7 @@ export class UserNameComponent implements OnInit {
   @HostListener ( 'click', ['$event'] )
   private selectThisUser ( $event: MouseEvent ) {
     if ( $event.target instanceof HTMLButtonElement ) {
-      this.deleteUser.emit( this.user );
+      // this.deleteUser.emit( this.user );
     } else {
       this.userSelection.emit ( this.user );
     }

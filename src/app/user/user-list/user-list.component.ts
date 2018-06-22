@@ -1,5 +1,6 @@
 import { Component, HostBinding, Input, OnInit } from '@angular/core';
 import { User } from '../user';
+import { UserService } from '../user.service';
 
 @Component ( {
   selector   : 'pta-user-list',
@@ -17,7 +18,7 @@ export class UserListComponent implements OnInit {
   @HostBinding ( 'style.font-size.px' )
   fontsize = 20;
 
-  constructor () {
+  constructor ( private $user: UserService ) {
   }
 
   ngOnInit () {
@@ -29,10 +30,10 @@ export class UserListComponent implements OnInit {
   }
 
   addNewUser () {
-    this.userList.push ( {
+    this.$user.createUsers( {
       firstname: 'saban' + Math.floor ( Math.random () * 100 ),
-      lastname : 'ünlü' + Math.floor ( Math.random () * 100 )
-    } );
+      lastname : 'ünlü' + Math.floor ( Math.random () * 100 ),
+    });
   }
 
   deleteUsr ( $event: User ) {

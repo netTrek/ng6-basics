@@ -1,5 +1,10 @@
 export interface User {
+  id?: string|number;
   firstname: string;
   lastname: string;
-  age?: number;
+  birthday?: any;
+  street?: any;
+  street_no?: any;
+  zip?: any;
+  city?: any;
 }

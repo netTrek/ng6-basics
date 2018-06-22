@@ -8,6 +8,7 @@ import { UserModule } from './user/user.module';
 
 import localeDE from '@angular/common/locales/de';
 import { registerLocaleData } from '@angular/common';
+import { AppService } from './app.service';
 
 registerLocaleData(localeDE);
 
@@ -22,7 +23,8 @@ registerLocaleData(localeDE);
     AppRoutingModule
   ],
   providers   : [
-    { provide: LOCALE_ID, useValue: 'de-ch' }
+    { provide: LOCALE_ID, useValue: 'de-ch' },
+    AppService
   ],
   bootstrap   : [ AppComponent ]
 } )
