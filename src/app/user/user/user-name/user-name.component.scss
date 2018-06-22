@@ -1,0 +1,7 @@
+:host {
+  cursor: pointer;
+  &.selected {
+    color: red;
+  }
+
+}

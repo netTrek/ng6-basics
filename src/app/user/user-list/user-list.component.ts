@@ -10,6 +10,7 @@ export class UserListComponent implements OnInit {
 
   @Input ()
   userList: User[];
+  selectedUsr: User;
 
   constructor () {
   }
@@ -18,4 +19,12 @@ export class UserListComponent implements OnInit {
     console.log ( this.userList );
   }
 
+  setAsSelected ( $event: User ) {
+    if ( this.selectedUsr ) {
+      this.selectedUsr.color = undefined;
+    }
+
+    this.selectedUsr       = $event;
+    this.selectedUsr.color = 'red';
+  }
 }
