@@ -1,4 +1,6 @@
 <!--The content below is only a placeholder and can be replaced.-->
+<!--
+
 <div style="text-align:center">
   <h1>
     Welcome to {{ title }}! {{ $appService.myVal | async}}
@@ -7,6 +9,7 @@
 </div>
 
 <pta-user-list [userList]="$user.users$ | async"></pta-user-list>
+-->
 
 <!--
 <pta-user-name [firstname]="myFirstName"></pta-user-name>
@@ -21,4 +24,12 @@
 <pta-user></pta-user>
 -->
 
+<nav>
+  <a routerLink="home" routerLinkActive="active">home</a> |
+  <a routerLink="contact" routerLinkActive="active">contact</a> |
+  <a routerLink="dash" routerLinkActive="active">dash</a>
+</nav>
+
 <router-outlet></router-outlet>
+
+<footer>impressum</footer>

@@ -9,12 +9,22 @@ import { UserModule } from './user/user.module';
 import localeDE from '@angular/common/locales/de';
 import { registerLocaleData } from '@angular/common';
 import { AppService } from './app.service';
+import { HomeComponent } from './home/home.component';
+import { DashComponent } from './dash/dash.component';
+import { ContactComponent } from './contact/contact.component';
+import { ContactFormComponent } from './contact/contact-form/contact-form.component';
+import { ContactMapComponent } from './contact/contact-map/contact-map.component';
 
 registerLocaleData(localeDE);
 
 @NgModule ( {
   declarations: [
-    AppComponent
+    AppComponent,
+    HomeComponent,
+    DashComponent,
+    ContactComponent,
+    ContactFormComponent,
+    ContactMapComponent
   ],
   imports     : [
     BrowserModule,
