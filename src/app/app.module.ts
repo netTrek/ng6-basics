@@ -1,10 +1,15 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { LOCALE_ID, NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CommonUiModule } from './common-ui/common-ui.module';
 import { UserModule } from './user/user.module';
+
+import localeDE from '@angular/common/locales/de';
+import { registerLocaleData } from '@angular/common';
+
+registerLocaleData(localeDE);
 
 @NgModule ( {
   declarations: [
@@ -16,7 +21,9 @@ import { UserModule } from './user/user.module';
     UserModule,
     AppRoutingModule
   ],
-  providers   : [],
+  providers   : [
+    { provide: LOCALE_ID, useValue: 'de-ch' }
+  ],
   bootstrap   : [ AppComponent ]
 } )
 export class AppModule {

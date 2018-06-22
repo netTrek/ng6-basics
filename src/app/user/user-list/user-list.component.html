@@ -1,8 +1,9 @@
 <h1>my user list</h1>
-<!--<ul>-->
-  <!--<li *ngFor="let user of userList">{{user.firstname}}</li>-->
-<!--</ul>-->
 <!--
+<ul>
+  <li *ngFor="let user of userList; index as i; first as f; last as l;">
+    {{i}} - {{f}} - {{l}} - {{user.firstname}}</li>
+</ul>
 <h2>{{selectedUsr?.firstname}} {{selectedUsr?.lastname}}</h2>
 -->
 
@@ -27,17 +28,29 @@
 <h2 *ngIf="isSucc">Erledigt</h2>
 <h2 *ngIf="!isSucc">nicht Erledigt</h2>
 -->
+<!--
 
 <h2 *ngIf="isSucc; else elseBlock">Erledigt</h2>
 <ng-template #elseBlock>
   <h2>nicht erledigt</h2>
 </ng-template>
+-->
 
+<ul>
+  <li>{{123456789.12345 | number }}</li>
+  <li>{{123456789.1234567 | number : '3.2-5' }}</li> <!--123,456,789.12346-->
+  <li>{{123456789.1 | number : '3.2-5' }}</li> <!--123,456,789.10-->
+  <li>{{1.1 | number : '3.2-5' }}</li> <!--001.10-->
+  <li>{{123456789.12345 | currency : 'EUR' : true }}</li>
+  <li>{{1529669967635 | date }}</li>
+  <li>{{1529669967635 | date : 'long' }}</li>
+  <li>{{1529669967635 | date : 'short' }}</li>
+  <li>{{1529669967635 | date : 'full' }}</li>
+</ul>
 
-
-<pta-user-name *ngFor="let user of userList"
+<pta-user-name *ngFor="let user of userList; even as e; odd as o"
                [user]="user"
-               [class.selected]="selectedUsr === user"
+               [ngClass]="{even: e, odd: o, selected: selectedUsr === user}"
                (userSelection)="setAsSelected($event)"
                (deleteUser)="deleteUsr($event)"
 ></pta-user-name>
