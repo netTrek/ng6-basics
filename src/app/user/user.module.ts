@@ -4,9 +4,10 @@ import { UserComponent } from './user/user.component';
 import { UserAvatarComponent } from './user/user-avatar/user-avatar.component';
 import { UserNameComponent } from './user/user-name/user-name.component';
 import { UserListComponent } from './user-list/user-list.component';
+import { CommonUiModule } from '../common-ui/common-ui.module';
 
 @NgModule ( {
-  imports     : [ CommonModule ],
+  imports     : [ CommonModule, CommonUiModule ],
   declarations: [ UserComponent, UserAvatarComponent, UserNameComponent, UserListComponent ],
   exports     : [ UserComponent, UserNameComponent, UserListComponent ]
 } )
