@@ -12,10 +12,10 @@ export class UserListComponent implements OnInit {
   userList: User[];
   selectedUsr: User;
 
-  @HostBinding ('style.font-size.px')
+  isSucc = true;
+
+  @HostBinding ( 'style.font-size.px' )
   fontsize = 20;
-
-
 
   constructor () {
   }
@@ -25,6 +25,20 @@ export class UserListComponent implements OnInit {
   }
 
   setAsSelected ( $event: User ) {
-    this.selectedUsr       = $event;
+    this.selectedUsr = $event;
+  }
+
+  addNewUser () {
+    this.userList.push ( {
+      firstname: 'saban' + Math.floor ( Math.random () * 100 ),
+      lastname : 'ünlü' + Math.floor ( Math.random () * 100 )
+    } );
+  }
+
+  deleteUsr ( $event: User ) {
+    const ind = this.userList.indexOf( $event );
+    if ( ind !== -1 ) {
+      this.userList.splice( ind,  1 );
+    }
   }
 }

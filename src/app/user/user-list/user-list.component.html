@@ -1,15 +1,45 @@
 <h1>my user list</h1>
-<!--<h2>{{selectedUsr?.firstname}} {{selectedUsr?.lastname}}</h2>-->
-<pta-user-name [user]="userList[0]"
-               color="green"
-               [class.selected]="selectedUsr === userList[0]"
+<!--<ul>-->
+  <!--<li *ngFor="let user of userList">{{user.firstname}}</li>-->
+<!--</ul>-->
+<!--
+<h2>{{selectedUsr?.firstname}} {{selectedUsr?.lastname}}</h2>
+-->
+
+<!--
+<h2 *ngIf="selectedUsr">{{selectedUsr.firstname}} {{selectedUsr.lastname}}</h2>
+<div *ngIf="true">
+  <h2 >element1</h2>
+  <h2 >element1</h2>
+  <h2 >element1</h2>
+  <h2 >element1</h2>
+</div>
+<div *ngIf="true">Hallo</div>
+-->
+<!--<ng-template [ngIf]="true">-->
+  <!--<h2 >element1</h2>-->
+  <!--<h2 >element1</h2>-->
+  <!--<h2 >element1</h2>-->
+  <!--<h2 >element1</h2>-->
+<!--</ng-template>-->
+
+<!--
+<h2 *ngIf="isSucc">Erledigt</h2>
+<h2 *ngIf="!isSucc">nicht Erledigt</h2>
+-->
+
+<h2 *ngIf="isSucc; else elseBlock">Erledigt</h2>
+<ng-template #elseBlock>
+  <h2>nicht erledigt</h2>
+</ng-template>
+
+
+
+<pta-user-name *ngFor="let user of userList"
+               [user]="user"
+               [class.selected]="selectedUsr === user"
                (userSelection)="setAsSelected($event)"
+               (deleteUser)="deleteUsr($event)"
 ></pta-user-name>
-<pta-user-name [user]="userList[1]"
-               [class.selected]="selectedUsr === userList[1]"
-               (userSelection)="setAsSelected($event)"
-></pta-user-name>
-<pta-user-name [user]="userList[2]"
-               [class.selected]="selectedUsr === userList[2]"
-               (userSelection)="setAsSelected($event)"
-></pta-user-name>
+
+<button (click)="addNewUser()">add new User</button>
