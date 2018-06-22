@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { environment } from '../environments/environment';
+import { User } from './user/user';
 
 @Component ( {
   selector   : 'pta-root',
@@ -8,6 +9,12 @@ import { environment } from '../environments/environment';
 } )
 export class AppComponent {
   title = 'pta';
+
+  list: User[] = [
+    { firstname: 'saban', lastname: 'ünlü' },
+    { firstname: 'peter', lastname: 'müller' },
+    { firstname: 'hans', lastname: 'mayer' }
+  ];
 
   myFirstName = 'saban ünlü';
 

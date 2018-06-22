@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { User } from '../../user';
 
 @Component ( {
   selector   : 'pta-user-name',
@@ -8,7 +9,7 @@ import { Component, Input, OnInit } from '@angular/core';
 export class UserNameComponent implements OnInit {
 
   @Input ()
-  firstname: string;
+  user: User;
 
   constructor () {
   }
