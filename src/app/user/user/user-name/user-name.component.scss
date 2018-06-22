@@ -1,4 +1,5 @@
 :host {
+  display: block;
   cursor: pointer;
   &.selected {
     color: red;

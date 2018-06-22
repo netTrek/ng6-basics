@@ -1,6 +1,7 @@
 <h1>my user list</h1>
 <!--<h2>{{selectedUsr?.firstname}} {{selectedUsr?.lastname}}</h2>-->
 <pta-user-name [user]="userList[0]"
+               color="green"
                [class.selected]="selectedUsr === userList[0]"
                (userSelection)="setAsSelected($event)"
 ></pta-user-name>

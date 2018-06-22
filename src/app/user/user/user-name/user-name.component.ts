@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, HostBinding, HostListener, Input, OnInit, Output } from '@angular/core';
 import { User } from '../../user';
 
 @Component ( {
@@ -14,6 +14,11 @@ export class UserNameComponent implements OnInit {
   @Output ()
   userSelection: EventEmitter<User> = new EventEmitter<User> ();
 
+
+  @HostBinding ('style.color')
+  @Input ()
+  color: undefined|string|number = undefined;
+
   constructor () {
   }
 
@@ -21,7 +26,19 @@ export class UserNameComponent implements OnInit {
 
   }
 
-  selectThisUser () {
+  @HostListener ( 'click' )
+  private selectThisUser () {
     this.userSelection.emit ( this.user );
   }
+
+  // @HostListener ( 'window:resize', [ '$event' ] )
+  // private resize ( event: Event ) {
+  //   console.log ( event );
+  // }
+
+  // @HostListener( 'mouseenter', ['$event'] )
+  // private selectThisUser ( $event: MouseEvent ) {
+  //   console.log ( $event );
+  //   this.userSelection.emit ( this.user );
+  // }
 }

@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, HostBinding, Input, OnInit } from '@angular/core';
 import { User } from '../user';
 
 @Component ( {
@@ -12,6 +12,11 @@ export class UserListComponent implements OnInit {
   userList: User[];
   selectedUsr: User;
 
+  @HostBinding ('style.font-size.px')
+  fontsize = 20;
+
+
+
   constructor () {
   }
 
@@ -21,6 +26,5 @@ export class UserListComponent implements OnInit {
 
   setAsSelected ( $event: User ) {
     this.selectedUsr       = $event;
-    this.selectedUsr.color = 'red';
   }
 }
