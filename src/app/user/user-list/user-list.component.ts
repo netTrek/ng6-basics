@@ -20,10 +20,6 @@ export class UserListComponent implements OnInit {
   }
 
   setAsSelected ( $event: User ) {
-    if ( this.selectedUsr ) {
-      this.selectedUsr.color = undefined;
-    }
-
     this.selectedUsr       = $event;
     this.selectedUsr.color = 'red';
   }
