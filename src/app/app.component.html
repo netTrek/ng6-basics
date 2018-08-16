@@ -5,6 +5,19 @@
   </h1>
 </div>
 
+<ul>
+  <li>{{title | uppercase}}</li>
+  <li>{{ pi }}</li>
+  <li>{{ pi | number }}</li>
+  <li>{{ pi | number : '.6'}}</li>
+  <li>{{ pi | number : '.3-5'}}</li>
+  <li>{{ pi | number : '2.3-5' : 'en'}}</li>
+  <li>{{ pi | number : '2.3-5'}}</li>
+  <li>{{ 'js is cool' | reverse : 'saban' | uppercase }}</li>
+  <li>{{ [1,2,3] | reverse : 4}}</li>
+</ul>
+
+
 <!--
 <img [src]="cat" [alt]="ariaLabel"
 [attr.aria-label]="ariaLabel">

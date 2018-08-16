@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { DecimalPipe } from '@angular/common';
 
 @Component ( {
   selector   : 'dg-root',
@@ -6,6 +7,9 @@ import { Component } from '@angular/core';
   styleUrls  : [ './app.component.scss' ]
 } )
 export class AppComponent {
+
+  pi = Math.PI;
+
   /*
   cat = 'https://bilder4.n-tv.de/img/incoming/crop20227687/1374993862-cImg_16_9-w680/Katze.jpg';
 
@@ -26,6 +30,11 @@ export class AppComponent {
 alert('diese seite ist blöd');
 </script>`;
 */
+
+  constructor ( private dp: DecimalPipe ) {
+    console.log ( dp.transform( this.pi ) );
+  }
+
   sagWas ( prefix: string = 'ich bin '): string {
     // return `${prefix}${this.title}`;
     return prefix + this.title;

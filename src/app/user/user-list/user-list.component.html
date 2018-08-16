@@ -1,6 +1,6 @@
 <h1>user list {{title}} {{selectedUsrInd}}</h1>
 
-<dg-user-item *ngFor="let user of userList; index as i; even as e; odd as o"
+<dg-user-item *ngFor="let user of userList | reverse; index as i; even as e; odd as o"
               class="saban"
               [ngClass]="{even:e, odd:o}"
   [user]="user" [selected]="selectedUsrInd === i"
