@@ -1,32 +1,20 @@
 <h1>user list {{title}} {{selectedUsrInd}}</h1>
 
+<dg-user-item *ngFor="let user of userList; index as i; even as e; odd as o"
+              class="saban"
+              [ngClass]="{even:e, odd:o}"
+  [user]="user" [selected]="selectedUsrInd === i"
+  (selectedUser)="selectUsr( $event )">
+</dg-user-item>
+
+<input type="text" (keydown.enter)="addNewUser( myInput )" #myInput>
+<!--
+
 <dg-user-item [user]="userList[0]" [selected]="selectedUsrInd === 0"
               (selectedUser)="selectUsr( $event )"></dg-user-item>
 <dg-user-item [user]="userList[1]" [selected]="selectedUsrInd === 1"
               (selectedUser)="selectUsr( $event )"></dg-user-item>
 <dg-user-item [user]="userList[2]" [selected]="selectedUsrInd === 2"
               (selectedUser)="selectUsr( $event )"></dg-user-item>
+-->
 
-
-<img *ngIf="show"
-  src="https://bilder4.n-tv.de/img/incoming/crop20227687/1374993862-cImg_16_9-w680/Katze.jpg"
-  alt="katze">
-
-<h1 *ngIf="show; else elseBlock">is admin</h1>
-
-
-
-<ng-template [ngIf]="show" [ngIfElse]="elseBlock">
-  <h1>search result</h1>
-  <ul>
-    <li>peter</li>
-    <li>hans</li>
-    <li>heike</li>
-  </ul>
-</ng-template>
-
-<ng-template #elseBlock>
-  <h1>keine sucherergebnisse</h1>
-</ng-template>
-
-<button (click)="show=!show">toggle</button>

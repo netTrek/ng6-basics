@@ -4,6 +4,14 @@
 
   cursor: pointer;
 
+  &.even {
+    background-color: #c7d6d6;
+  }
+
+  &.odd {
+    background-color: #c2bdd6;
+  }
+
   &:hover {
     color: red;
   }

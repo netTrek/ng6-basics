@@ -16,23 +16,11 @@ export class UserListComponent implements OnInit {
 
   title          = 'ich bin eine liste';
   selectedUsrInd = 0;
-  myUser: User   = {
-    firstname: 'hans', lastname: 'müller'
-  };
-
-  show = true;
+  classList = 'product bold';
 
   constructor () {
   }
 
-
-  chgUser () {
-    const firstname = 'saban';
-    const lastname = 'ünlü';
-    this.myUser = { firstname, lastname };
-    // this.myUser = { firstname: firstname, lastname: lastname };
-    // this.myUser = { firstname: 'saban', lastname: 'ünlü'};
-  }
 
   ngOnInit () {
   }
@@ -40,5 +28,12 @@ export class UserListComponent implements OnInit {
   selectUsr ( usr: User ) {
     console.log ( usr );
     this.selectedUsrInd = this.userList.indexOf ( usr );
+  }
+
+  addNewUser ( input: HTMLInputElement) {
+    this.userList.push( {
+      firstname: input.value, lastname: 'angular'
+    });
+    input.value = '';
   }
 }
