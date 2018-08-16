@@ -8,6 +8,12 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'datagroup';
 
-  gehe () {
+  sagWas ( prefix: string = 'ich bin '): string {
+    // return `${prefix}${this.title}`;
+    return prefix + this.title;
+  }
+
+  chgTitle ( newTitle: string ) {
+    this.title = newTitle;
   }
 }

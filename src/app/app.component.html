@@ -1,9 +1,17 @@
 <!--The content below is only a placeholder and can be replaced.-->
 <div style="text-align:center">
-  <h3>
+  <h1>
     Welcome to {{ title }}!
-  </h3>
+  </h1>
 </div>
+
+<h3>{{sagWas()}}</h3>
+<h3>{{sagWas( 'saban sagt ')}}</h3>
+<h3>{{sagWas() + ' - toll'}}</h3>
+
+<button (click)="title='saban'">change</button>
+
+<button (click)="chgTitle('saban')">change</button>
 
 <dg-user-list></dg-user-list>
 
