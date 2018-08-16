@@ -5,12 +5,14 @@
   </h1>
 </div>
 
+<!--
 <img [src]="cat" [alt]="ariaLabel"
 [attr.aria-label]="ariaLabel">
 
 <img [attr.src]="cat">
 
 <div [innerHTML]="htmlString"></div>
+-->
 
 <!--
 <h3>{{sagWas()}}</h3>
@@ -21,6 +23,12 @@
 
 <button (click)="chgTitle('saban')">change</button>
 -->
+
+<div style="color: red">red</div>
+<div [style.color]='fontColor' >green</div>
+<div [style]='{color: fontColor}'>styleObj</div>
+
+<div [style.width.px]="width"  style="width: 100px; height: 100px; display: inline-block; background-color: blue" ></div>
 
 <dg-user-list></dg-user-list>
 
