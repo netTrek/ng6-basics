@@ -1,4 +1,16 @@
-import { Component, ElementRef, OnInit, ViewChild, ViewEncapsulation } from '@angular/core';
+import {
+  Component,
+  ElementRef,
+  EventEmitter, HostBinding, HostListener,
+  Input,
+  OnChanges,
+  OnInit,
+  Output,
+  SimpleChanges,
+  ViewChild,
+  ViewEncapsulation
+} from '@angular/core';
+import { User } from '../../user';
 
 @Component({
   selector: 'dg-user-item',
@@ -11,11 +23,30 @@ import { Component, ElementRef, OnInit, ViewChild, ViewEncapsulation } from '@an
   // }`],
   // encapsulation: ViewEncapsulation.None
 })
-export class UserItemComponent implements OnInit {
+export class UserItemComponent implements OnInit, OnChanges {
+
+  @Input() user: User;
+  @Output() selectedUser: EventEmitter<User> = new EventEmitter();
+
+  @Input()
+  @HostBinding ('class.selected')
+  selected = false;
 
   constructor() { }
 
   ngOnInit() {
   }
 
+  // @HostListener('click', [ '$event', 'user' ] ) // mit opt Payload
+  @HostListener('click' ) // ohne
+  setAsSelected ( evt?: MouseEvent, user?: User ) {
+    // debugger
+    this.selectedUser.emit( this.user );
+  }
+
+
+  ngOnChanges ( changes: SimpleChanges ): void {
+    // debugger
+    // console.log( 'ss' );
+  }
 }

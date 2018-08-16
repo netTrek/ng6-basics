@@ -1,4 +1,15 @@
 :host {
   display: block;
   color: chocolate;
+
+  cursor: pointer;
+
+  &:hover {
+    color: red;
+  }
+
+  &.selected {
+    color: green;
+    background-color: azure;
+  }
 }
