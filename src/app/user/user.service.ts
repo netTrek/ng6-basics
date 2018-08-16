@@ -3,6 +3,7 @@ import { User } from './user';
 import { last, tap } from 'rxjs/operators';
 import { HttpClient } from '@angular/common/http';
 import { environment } from '../../environments/environment';
+import { Router } from '@angular/router';
 
 @Injectable ( { providedIn: 'root' } )
 export class UserService {
@@ -11,7 +12,7 @@ export class UserService {
 
   userList: User[] = [];
 
-  constructor ( private $http: HttpClient ) {
+  constructor ( private $http: HttpClient, private $router: Router  ) {
     this.getUserList();
   }
 
@@ -33,6 +34,7 @@ export class UserService {
   selectUsr ( usr: User ) {
     console.log ( usr );
     this.selectedUsrInd = this.userList.indexOf ( usr );
+    this.$router.navigate( [ 'user', usr.id ] );
   }
 
   addNewUser ( input: HTMLInputElement | User ): Promise<User> {

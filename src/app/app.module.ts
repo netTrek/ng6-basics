@@ -8,6 +8,7 @@ import { UtilsModule } from './utils/utils.module';
 
 import localeDE from '@angular/common/locales/de';
 import { DecimalPipe, registerLocaleData } from '@angular/common';
+import { HomeModule } from './home/home.module';
 registerLocaleData( localeDE );
 
 @NgModule({
@@ -18,6 +19,7 @@ registerLocaleData( localeDE );
     BrowserModule,
     AppRoutingModule,
     UserModule,
+    HomeModule,
     UtilsModule
   ],
   providers: [
