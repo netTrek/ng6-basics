@@ -36,13 +36,13 @@ alert('diese seite ist blöd');
 */
 
   constructor ( private dp: DecimalPipe, public $user: UserService ) {
-    console.log ( dp.transform( this.pi ) );
+    // console.log ( dp.transform( this.pi ) );
 
-    interval( 1000 ).pipe(take(1)).subscribe(
-      next => {
-        this.$user.addNewUser( <User>{ firstname: 'super', lastname: 'oder'} );
-      }
-    );
+    // interval( 1000 ).pipe(take(1)).subscribe(
+    //   next => {
+    //     this.$user.addNewUser( <User>{ firstname: 'super', lastname: 'oder'} );
+    //   }
+    // );
   }
 
   sagWas ( prefix: string = 'ich bin '): string {
