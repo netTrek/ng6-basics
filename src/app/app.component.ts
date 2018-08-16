@@ -13,13 +13,13 @@ export class AppComponent {
   */
 
   title = 'datagroup';
-  fontColor = 'green';
+/*  fontColor = 'green';
 
   width = 10;
 
   styleObj = {
     color: 'red', backgroundColor: 'yellow'
-  };
+  };*/
 
   /*
   htmlString = `hallo <strong>welt</strong><script >
