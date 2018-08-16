@@ -20,6 +20,8 @@ export class UserListComponent implements OnInit {
     firstname: 'hans', lastname: 'müller'
   };
 
+  show = true;
+
   constructor () {
   }
 

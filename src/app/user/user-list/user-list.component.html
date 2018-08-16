@@ -8,4 +8,25 @@
               (selectedUser)="selectUsr( $event )"></dg-user-item>
 
 
+<img *ngIf="show"
+  src="https://bilder4.n-tv.de/img/incoming/crop20227687/1374993862-cImg_16_9-w680/Katze.jpg"
+  alt="katze">
 
+<h1 *ngIf="show; else elseBlock">is admin</h1>
+
+
+
+<ng-template [ngIf]="show" [ngIfElse]="elseBlock">
+  <h1>search result</h1>
+  <ul>
+    <li>peter</li>
+    <li>hans</li>
+    <li>heike</li>
+  </ul>
+</ng-template>
+
+<ng-template #elseBlock>
+  <h1>keine sucherergebnisse</h1>
+</ng-template>
+
+<button (click)="show=!show">toggle</button>
