@@ -1,13 +1,13 @@
-<h1>user list {{title}} {{selectedUsrInd}}</h1>
+<h6>user list {{title}} {{$user.selectedUsrInd}}</h6>
 
-<dg-user-item *ngFor="let user of userList | reverse; index as i; even as e; odd as o"
+<dg-user-item *ngFor="let user of $user.userList | reverse; index as i; even as e; odd as o"
               class="saban"
               [ngClass]="{even:e, odd:o}"
-  [user]="user" [selected]="selectedUsrInd === i"
-  (selectedUser)="selectUsr( $event )">
+  [user]="user" [selected]="$user.selectedUsrInd === i"
+  (selectedUser)="$user.selectUsr( $event )">
 </dg-user-item>
 
-<input type="text" (keydown.enter)="addNewUser( myInput )" #myInput>
+<input type="text" (keydown.enter)="$user.addNewUser( myInput )" #myInput>
 <!--
 
 <dg-user-item [user]="userList[0]" [selected]="selectedUsrInd === 0"

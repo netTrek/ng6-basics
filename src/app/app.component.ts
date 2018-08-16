@@ -1,5 +1,9 @@
 import { Component } from '@angular/core';
 import { DecimalPipe } from '@angular/common';
+import { UserService } from './user/user.service';
+import { interval } from 'rxjs';
+import { take } from 'rxjs/operators';
+import { User } from './user/user';
 
 @Component ( {
   selector   : 'dg-root',
@@ -31,8 +35,14 @@ alert('diese seite ist blöd');
 </script>`;
 */
 
-  constructor ( private dp: DecimalPipe ) {
+  constructor ( private dp: DecimalPipe/*, public $user: UserService */) {
     console.log ( dp.transform( this.pi ) );
+
+    // interval( 3000 ).pipe(take(1)).subscribe(
+    //   next => {
+    //     this.$user.addNewUser( <User>{ firstname: 'super', lastname: 'oder'} );
+    //   }
+    // );
   }
 
   sagWas ( prefix: string = 'ich bin '): string {

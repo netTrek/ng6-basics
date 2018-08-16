@@ -1,39 +1,21 @@
 import { Component, OnInit } from '@angular/core';
 import { User } from '../user';
+import { UserService } from '../user.service';
 
 @Component ( {
   selector   : 'dg-user-list',
   templateUrl: './user-list.component.html',
-  styleUrls  : [ './user-list.component.scss' ]
+  styleUrls  : [ './user-list.component.scss' ],
+  providers: [UserService]
 } )
 export class UserListComponent implements OnInit {
 
-  userList: User[] = [
-    { firstname: 'saban', lastname: 'ünlü' },
-    { firstname: 'peter', lastname: 'müller' },
-    { firstname: 'heike', lastname: 'maier' }
-  ];
-
   title          = 'ich bin eine liste';
-  selectedUsrInd = 0;
-  classList = 'product bold';
 
-  constructor () {
+  constructor ( public $user: UserService ) {
   }
 
 
   ngOnInit () {
-  }
-
-  selectUsr ( usr: User ) {
-    console.log ( usr );
-    this.selectedUsrInd = this.userList.indexOf ( usr );
-  }
-
-  addNewUser ( input: HTMLInputElement) {
-    this.userList.push( {
-      firstname: input.value, lastname: 'angular'
-    });
-    input.value = '';
   }
 }
