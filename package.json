@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve --aot",
+    "start": "ng serve",
     "start:prod": "ng serve --aot --prod",
     "start:staging": "ng serve --aot --configuration staging",
     "build": "ng build --prod",

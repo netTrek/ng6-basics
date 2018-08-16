@@ -5,6 +5,14 @@
   </h1>
 </div>
 
+<img [src]="cat" [alt]="ariaLabel"
+[attr.aria-label]="ariaLabel">
+
+<img [attr.src]="cat">
+
+<div [innerHTML]="htmlString"></div>
+
+<!--
 <h3>{{sagWas()}}</h3>
 <h3>{{sagWas( 'saban sagt ')}}</h3>
 <h3>{{sagWas() + ' - toll'}}</h3>
@@ -12,6 +20,7 @@
 <button (click)="title='saban'">change</button>
 
 <button (click)="chgTitle('saban')">change</button>
+-->
 
 <dg-user-list></dg-user-list>
 
