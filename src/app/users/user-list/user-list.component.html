@@ -6,7 +6,39 @@
   <li>{{ getListName( prefix ) }}</li>
   <li>{{ getListName( '*' + prefix ) }}</li>
 </ul>
+<!--
+
+<section aria-label="Beschreibungen">
+  <article aria-label="Artikel 1">
+    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus consectetur facilis laborum non tempora tempore, totam vitae voluptatum! Adipisci aperiam consequatur delectus est in ipsa placeat reprehenderit saepe similique veritatis.
+  </article>
+</section>
+-->
+
+<!--
+<div [innerHTML]="html"></div>
+
+<div class="countdown" style="background-color: red"></div>
+<div class="countdown" [style.backgroundColor]="bgColor"></div>
+<div class="countdown" [style.width]="boxWidth + 'px'"></div>
+-->
+
+
+<div class="countdown-container">
+  <div class="countdown" [style.width.%]="countdown"></div>
+</div>
+
+<br>
+
+<!--
+<img src="assets/images/cat.jpg" alt="cat">
+<img [src]="imgUrl" [attr.alt]="imgAlt" >
+<img [attr.src]="imgUrl" [attr.alt]="imgAlt">
+
+<button (click)="chgImg()">Ändere Bild</button>
+-->
 
 <button (click)="chgListName()">Ändere Liste</button>
+<button (click)="prefix = '#'">Ändere Prefix</button>
 
-<button (click)="prefix = '#'">Ändere Ürefix</button>
+

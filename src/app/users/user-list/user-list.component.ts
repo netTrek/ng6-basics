@@ -26,17 +26,47 @@ export class UserListComponent implements OnInit {
   listName = 'Ich bin eine User Liste';
   prefix = '';
 
+  html = '<strong>Hello</strong> world <script>alert ("hack")</script>';
+
+  imgUrl = 'assets/images/cat.jpg';
+  imgAlt = 'cat';
+
+  bgColor = 'blue';
+  boxWidth = 100;
+
+  countdown = 100;
+  private intervalID: number;
+
   constructor () {
   }
-
   ngOnInit () {
+    this.startCountDown ();
   }
-
   chgListName () {
     this.listName = 'angular rocks';
   }
-
   getListName ( prefix?: string ): string {
+
+    // prefix = prefix || '';
+    // if ( !prefix ) {
+    //   prefix = '';
+    // }
+
     return `${prefix ? prefix + ' ' : ''}${this.listName}`;
+  }
+
+  chgImg () {
+    this.imgUrl = 'https://placebear.com/200/300';
+    this.imgAlt = 'bear';
+  }
+
+  private startCountDown () {
+    this.countdown = 100;
+    this.intervalID = setInterval( () => {
+        this.countdown -= 10;
+        if ( this.countdown === 0 ) {
+          clearInterval( this.intervalID );
+        }
+    }, 1000 );
   }
 }
