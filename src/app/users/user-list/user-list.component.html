@@ -1,54 +1,16 @@
-<h3>{{listName}}</h3>
+<h3>user list</h3>
 <!--
-
-<div class="saban" [class]="classDef">hello world</div>
-<div [class.selected]="true">selected</div>
-<div [class.selected]="false">ohne selected</div>
-<div [class.selected]="isSelected" (click)="toggleSelection()">{{isSelected}}</div>
+<h5>{{selectedUsr | json}}</h5>
 -->
-
-<ul>
-  <li (click)="setSelectedIndex(0)" [class.selected]="selectedInd === 0">Saban</li>
-  <li (click)="setSelectedIndex(1)" [class.selected]="selectedInd === 1">Heike</li>
-  <li (click)="setSelectedIndex(2)" [class.selected]="selectedInd === 2">Peter</li>
-  <li (click)="setSelectedIndex(3)" [class.selected]="selectedInd === 3">Paul</li>
-</ul>
-
-<!--<ul>-->
-  <!--<li>{{ getListName() }}</li>-->
-  <!--<li>{{ getListName( 'wer bist du') }}</li>-->
-  <!--<li>{{ getListName( prefix ) }}</li>-->
-  <!--<li>{{ getListName( '*' + prefix ) }}</li>-->
-<!--</ul>-->
-<!--
-
-<section aria-label="Beschreibungen">
-  <article aria-label="Artikel 1">
-    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus consectetur facilis laborum non tempora tempore, totam vitae voluptatum! Adipisci aperiam consequatur delectus est in ipsa placeat reprehenderit saepe similique veritatis.
-  </article>
-</section>
--->
-
-<!--
-<div [innerHTML]="html"></div>
-
-<div class="countdown" style="background-color: red"></div>
-<div class="countdown" [style.backgroundColor]="bgColor"></div>
-<div class="countdown" [style.width]="boxWidth + 'px'"></div>
--->
-
-
-<br>
-
-<!--
-<img src="assets/images/cat.jpg" alt="cat">
-<img [src]="imgUrl" [attr.alt]="imgAlt" >
-<img [attr.src]="imgUrl" [attr.alt]="imgAlt">
-
-<button (click)="chgImg()">Ändere Bild</button>
--->
-
-<button (click)="chgListName()">Ändere Liste</button>
-<button (click)="prefix = '#'">Ändere Prefix</button>
-
-
+<msg-user [user]="users[0]"
+          (userSelected)="selectUser( $event )"
+          [class.selected]="selectedUsr === users[0]">
+</msg-user>
+<msg-user [user]="users[1]"
+          (userSelected)="selectUser( $event )"
+          [class.selected]="selectedUsr === users[1]">
+</msg-user>
+<msg-user [user]="users[2]"
+          (userSelected)="selectUser( $event )"
+          [class.selected]="selectedUsr === users[2]">
+</msg-user>

@@ -1,0 +1,15 @@
+
+:host {
+  display: block;
+  &.selected {
+    background-color: cornsilk;
+    &:hover {
+      cursor: default;
+      text-decoration: none;
+    }
+  }
+  &:hover {
+    text-decoration: underline;
+    cursor: pointer;
+  }
+}

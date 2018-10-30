@@ -1,75 +1,28 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { User } from '../user';
 
 @Component ( {
   selector     : 'msg-user-list',
   templateUrl  : './user-list.component.html',
-  // template     : `
-  //   <h1>UserLister</h1>
-  //   <ul>
-  //     <li>Hello</li>
-  //     <li>World</li>
-  //     <li>List</li>
-  //   </ul>
-  // `,
-  styleUrls    : [ './user-list.component.scss' ],
-  // styles  : [ `
-  //               li {
-  //                   color: red;
-  //               }
-  //             `]
-  // encapsulation: ViewEncapsulation.None
-  encapsulation: ViewEncapsulation.Emulated
-  // encapsulation: ViewEncapsulation.Native
+  styleUrls    : [ './user-list.component.scss' ]
 } )
 export class UserListComponent implements OnInit {
 
-  listName = 'Ich bin eine User Liste';
-  prefix   = '';
-
-  html = '<strong>Hello</strong> world <script>alert ("hack")</script>';
-
-  imgUrl = 'assets/images/cat.jpg';
-  imgAlt = 'cat';
-
-  classDef = 'class1 class2 class3';
-  bgColor  = 'blue';
-  boxWidth = 100;
-
-  isSelected = false;
-
-  countdown = 100;
-  selectedInd = -1;
-  private intervalID: number;
+  users: User[] = [
+    { lastname: 'Ünlü', firstname: 'Saban', age: 44},
+    { lastname: 'Müller', firstname: 'Peter', age: 33},
+    { lastname: 'Musterfrau', firstname: 'Heike', age: 33}
+  ];
+  selectedUsr: User;
 
   constructor () {
   }
 
-  setSelectedIndex ( index: number ) {
-    if ( this.selectedInd === index ) {
-      this.selectedInd = -1;
-    } else {
-      this.selectedInd = index;
-    }
+  ngOnInit (): void {
   }
-  ngOnInit () {
-  }
-  chgListName () {
-    this.listName = 'angular rocks';
-  }
-  getListName ( prefix?: string ): string {
 
-    // prefix = prefix || '';
-    // if ( !prefix ) {
-    //   prefix = '';
-    // }
+  selectUser ( user: User ) {
+    this.selectedUsr = user;
+  }
 
-    return `${prefix ? prefix + ' ' : ''}${this.listName}`;
-  }
-  chgImg () {
-    this.imgUrl = 'https://placebear.com/200/300';
-    this.imgAlt = 'bear';
-  }
-  toggleSelection () {
-    this.isSelected = !this.isSelected;
-  }
 }

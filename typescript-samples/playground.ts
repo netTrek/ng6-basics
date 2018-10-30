@@ -66,13 +66,13 @@ m.weight = 12;
 
 m.paramsPlay('peter', true, 'hans', 'heike');
 
-interface User {
+interface UserPlay {
   firstname: string;
   lastname: string;
   age: number;
 }
 
-interface AdminUser extends User {
+interface AdminUser extends UserPLay {
   role: number;
 }
 
