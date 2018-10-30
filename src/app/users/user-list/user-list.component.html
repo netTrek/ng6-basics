@@ -2,11 +2,66 @@
 <!--
 <h5>{{selectedUsr | json}}</h5>
 -->
+<!--
+
+<ng-container *ngIf="selectedUsr">
+  <h5>{{selectedUsr.firstname}}</h5>
+  <h5>{{selectedUsr.lastname}}</h5>
+</ng-container>
+-->
+
+<ng-template [ngIf]="selectedUsr" [ngIfElse]="noUser">
+  <h5>{{selectedUsr.firstname}}{{selectedUsr.lastname}}</h5>
+  <!--
+  <input type="text" [value]="selectedUsr.firstname">
+  -->
+</ng-template>
+
+<!--
+<h5 *ngIf="selectedUsr; else noUser"> {{selectedUsr.firstname }}</h5>
+<h5 *ngIf="!selectedUsr">No User Selected</h5>
+-->
+
+<ng-template #noUser>
+  <h5>No User Selected</h5>
+</ng-template>
+
+<!--
+index, count, first, middle, last, even, odd
+-->
+<!--<ul>
+  <li *ngFor="let user of users; index as i; even as e; odd as o"> #{{i}} {{e}} {{o}} {{user | json}}</li>
+</ul>-->
+<!--
+<msg-user *ngFor="let user of users; even as e; odd as o"
+          [class.even]="e"
+          [class.odd]="o"
+          -->
+<!--
+
+<msg-user *ngFor="let user of users; even as e; odd as o"
+-->
+
+<msg-user *ngFor="let user of users; let e=even; let o=odd"
+          [ngClass]="{even: e, odd: o}"
+          [user]="user"
+          (userSelected)="selectUser( $event )"
+          (deleteUser)="deleteUser( $event )"
+          (cloneUser)="cloneUser( $event )"
+          [isSelected]="selectedUsr === user"
+>
+</msg-user>
+
+
+
+<!--
+
 <msg-user [user]="users[0]"
           (userSelected)="selectUser( $event )"
           [isSelected]="selectedUsr === users[0]"
 >
 </msg-user>
+
 <msg-user [user]="users[1]"
           (userSelected)="selectUser( $event )"
           [isSelected]="selectedUsr === users[1]"
@@ -17,6 +72,7 @@
           [isSelected]="selectedUsr === users[2]"
 >
 </msg-user>
+-->
 
 
 <!--

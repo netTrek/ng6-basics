@@ -21,8 +21,23 @@ export class UserListComponent implements OnInit {
   ngOnInit (): void {
   }
 
+  deleteUser ( user: User ) {
+    if ( user === this.selectedUsr ) {
+      this.selectedUsr = undefined;
+    }
+    this.users.splice( this.users.indexOf(user), 1 );
+  }
+
+  cloneUser ( user: User ) {
+    this.users.push( {... user} );
+  }
+
   selectUser ( user: User ) {
-    this.selectedUsr = user;
+    if ( user === this.selectedUsr ) {
+      this.selectedUsr = undefined;
+    } else {
+      this.selectedUsr = user;
+    }
   }
 
   @HostListener ( 'document:click', [ '$event' ] )

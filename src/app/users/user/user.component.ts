@@ -10,6 +10,8 @@ export class UserComponent implements OnInit, OnChanges {
 
   @Input () user: User;
   @Output () userSelected: EventEmitter<User> = new EventEmitter ();
+  @Output () deleteUser: EventEmitter<User>   = new EventEmitter ();
+  @Output () cloneUser: EventEmitter<User>   = new EventEmitter ();
 
   @Input ()
   @HostBinding ( 'class.selected' )
@@ -23,11 +25,19 @@ export class UserComponent implements OnInit, OnChanges {
 
   @HostListener ( 'click', [ '$event' ] )
   dispatchUserEvent ( event: MouseEvent ) {
-    if ( event.target instanceof HTMLButtonElement ) {
-      console.log ( 'mach nix' );
-    } else {
+    // debugger
+    // if ( ! (event.target instanceof HTMLButtonElement) ) {
+    if ( (event.target as HTMLElement).nodeName.toLocaleLowerCase() === 'msg-user' ) {
       this.userSelected.emit ( this.user );
     }
+  }
+
+  dispatchDel () {
+    this.deleteUser.emit ( this.user );
+  }
+
+  dispatchClone () {
+    this.cloneUser.emit ( this.user );
   }
 
   // @HostListener ( 'click', [ '$event' ] )
@@ -40,9 +50,5 @@ export class UserComponent implements OnInit, OnChanges {
     if ( changes.user ) {
       console.log ( (changes.user.currentValue as User).firstname );
     }
-  }
-
-  testBtnClicked () {
-    console.log ( 'test button clicked' );
   }
 }
