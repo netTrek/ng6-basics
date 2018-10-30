@@ -44,13 +44,18 @@ export class UserListComponent implements OnInit {
   constructor () {
   }
 
+  setSelectedIndex ( index: number ) {
+    if ( this.selectedInd === index ) {
+      this.selectedInd = -1;
+    } else {
+      this.selectedInd = index;
+    }
+  }
   ngOnInit () {
   }
-
   chgListName () {
     this.listName = 'angular rocks';
   }
-
   getListName ( prefix?: string ): string {
 
     // prefix = prefix || '';
@@ -60,21 +65,11 @@ export class UserListComponent implements OnInit {
 
     return `${prefix ? prefix + ' ' : ''}${this.listName}`;
   }
-
   chgImg () {
     this.imgUrl = 'https://placebear.com/200/300';
     this.imgAlt = 'bear';
   }
-
   toggleSelection () {
     this.isSelected = !this.isSelected;
-  }
-
-  setSelectedIndex ( index: number ) {
-    if ( this.selectedInd === index ) {
-      this.selectedInd = -1;
-    } else {
-      this.selectedInd = index;
-    }
   }
 }

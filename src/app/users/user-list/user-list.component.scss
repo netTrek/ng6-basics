@@ -8,6 +8,10 @@
       font-weight: bolder;
       background-color: yellow;
     }
+    &:hover {
+      text-decoration: underline;
+      cursor: pointer;
+    }
   }
 
 
