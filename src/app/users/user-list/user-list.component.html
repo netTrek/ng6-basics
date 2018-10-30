@@ -1,0 +1,12 @@
+<h3>{{listName}}</h3>
+
+<ul>
+  <li>{{ getListName() }}</li>
+  <li>{{ getListName( 'wer bist du') }}</li>
+  <li>{{ getListName( prefix ) }}</li>
+  <li>{{ getListName( '*' + prefix ) }}</li>
+</ul>
+
+<button (click)="chgListName()">Ändere Liste</button>
+
+<button (click)="prefix = '#'">Ändere Ürefix</button>
