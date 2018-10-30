@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { Component, HostListener, OnInit, ViewEncapsulation } from '@angular/core';
 import { User } from '../user';
 
 @Component ( {
@@ -23,6 +23,11 @@ export class UserListComponent implements OnInit {
 
   selectUser ( user: User ) {
     this.selectedUsr = user;
+  }
+
+  @HostListener ( 'document:click', [ '$event' ] )
+  zweiterKlickHandler ( event: MouseEvent ) {
+    console.log ( 'klick im doc', event );
   }
 
 }

@@ -4,13 +4,23 @@
 -->
 <msg-user [user]="users[0]"
           (userSelected)="selectUser( $event )"
-          [class.selected]="selectedUsr === users[0]">
+          [isSelected]="selectedUsr === users[0]"
+>
 </msg-user>
 <msg-user [user]="users[1]"
           (userSelected)="selectUser( $event )"
-          [class.selected]="selectedUsr === users[1]">
+          [isSelected]="selectedUsr === users[1]"
+>
 </msg-user>
 <msg-user [user]="users[2]"
           (userSelected)="selectUser( $event )"
-          [class.selected]="selectedUsr === users[2]">
+          [isSelected]="selectedUsr === users[2]"
+>
 </msg-user>
+
+
+<!--
+[class.selected]="selectedUsr === users[0]"
+[class.selected]="selectedUsr === users[1]"
+[class.selected]="selectedUsr === users[2]"
+-->
