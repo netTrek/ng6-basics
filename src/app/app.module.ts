@@ -5,6 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { UsersModule } from './users/users.module';
 import { Saban, TestClass } from '../es6.module';
+import { UtilsModule } from './utils/utils.module';
 
 @NgModule({
   declarations: [
@@ -13,7 +14,8 @@ import { Saban, TestClass } from '../es6.module';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    UsersModule
+    UsersModule,
+    UtilsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
