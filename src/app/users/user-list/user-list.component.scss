@@ -4,7 +4,12 @@
 
   li {
     color: red;
+    &.selected {
+      font-weight: bolder;
+      background-color: yellow;
+    }
   }
+
 
 }
 

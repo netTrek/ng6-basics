@@ -1,11 +1,25 @@
 <h3>{{listName}}</h3>
+<!--
+
+<div class="saban" [class]="classDef">hello world</div>
+<div [class.selected]="true">selected</div>
+<div [class.selected]="false">ohne selected</div>
+<div [class.selected]="isSelected" (click)="toggleSelection()">{{isSelected}}</div>
+-->
 
 <ul>
-  <li>{{ getListName() }}</li>
-  <li>{{ getListName( 'wer bist du') }}</li>
-  <li>{{ getListName( prefix ) }}</li>
-  <li>{{ getListName( '*' + prefix ) }}</li>
+  <li (click)="setSelectedIndex(0)" [class.selected]="selectedInd === 0">Saban</li>
+  <li (click)="setSelectedIndex(1)" [class.selected]="selectedInd === 1">Heike</li>
+  <li (click)="setSelectedIndex(2)" [class.selected]="selectedInd === 2">Peter</li>
+  <li (click)="setSelectedIndex(3)" [class.selected]="selectedInd === 3">Paul</li>
 </ul>
+
+<!--<ul>-->
+  <!--<li>{{ getListName() }}</li>-->
+  <!--<li>{{ getListName( 'wer bist du') }}</li>-->
+  <!--<li>{{ getListName( prefix ) }}</li>-->
+  <!--<li>{{ getListName( '*' + prefix ) }}</li>-->
+<!--</ul>-->
 <!--
 
 <section aria-label="Beschreibungen">

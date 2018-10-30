@@ -31,10 +31,14 @@ export class UserListComponent implements OnInit {
   imgUrl = 'assets/images/cat.jpg';
   imgAlt = 'cat';
 
+  classDef = 'class1 class2 class3';
   bgColor  = 'blue';
   boxWidth = 100;
 
+  isSelected = false;
+
   countdown = 100;
+  selectedInd = -1;
   private intervalID: number;
 
   constructor () {
@@ -60,5 +64,17 @@ export class UserListComponent implements OnInit {
   chgImg () {
     this.imgUrl = 'https://placebear.com/200/300';
     this.imgAlt = 'bear';
+  }
+
+  toggleSelection () {
+    this.isSelected = !this.isSelected;
+  }
+
+  setSelectedIndex ( index: number ) {
+    if ( this.selectedInd === index ) {
+      this.selectedInd = -1;
+    } else {
+      this.selectedInd = index;
+    }
   }
 }
