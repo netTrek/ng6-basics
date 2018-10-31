@@ -5,7 +5,10 @@
   </h1>
 </div>
 
+<h3 *ngIf="$user.selectedUsr">User Selected</h3>
+
 <msg-user-list></msg-user-list>
+<!--
 
 <ul>
   <li>{{createAt}}</li>
@@ -23,6 +26,8 @@
 
 <button msgDanger msgGaEvent="Danger">Danger</button>
 <button msgDanger="mega-danger">Danger</button>
+-->
+
 
 <!--
 <msg-countdown style="width: 100px; height: 50px"></msg-countdown>

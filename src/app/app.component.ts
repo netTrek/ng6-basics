@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { BehaviorSubject, fromEvent, interval, Observable, of, range, Subject, Subscription } from 'rxjs';
 import { filter, first, map, take } from 'rxjs/operators';
+import { UserService } from './users/user.service';
 
 @Component ( {
   selector   : 'msg-root',
@@ -12,16 +13,15 @@ export class AppComponent {
   num      = Math.PI;
   title    = 'msg';
 
-  constructor () {
+  constructor ( public $user: UserService ) {
     // this.initOf ();
     // this.initRange ();
     // this.initInterval ();
     // this.initNew ();
     // this.initNew2 ();
     // this.initSub ();
-    // this.initBehaviourSub ();
-
-    this.initFromEvent ();
+    this.initBehaviourSub ();
+    // this.initFromEvent ();
   }
 
   private initFromEvent () {
