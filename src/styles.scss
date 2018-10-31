@@ -7,3 +7,12 @@ body {
 li {
   color: green;
 }
+
+button.danger {
+  background-color: #ff9345;
+  font-size: larger;
+}
+button.mega-danger {
+  background-color: red;
+  font-size: xx-large;
+}

@@ -23,6 +23,6 @@ import { UtilsModule } from './utils/utils.module';
 export class AppModule {
   constructor () {
     const t: TestClass = new TestClass();
-    console.log( Saban );
+    // console.log( Saban );
   }
 }

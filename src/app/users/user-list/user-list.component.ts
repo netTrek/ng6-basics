@@ -40,9 +40,9 @@ export class UserListComponent implements OnInit {
     }
   }
 
-  @HostListener ( 'document:click', [ '$event' ] )
-  zweiterKlickHandler ( event: MouseEvent ) {
-    console.log ( 'klick im doc', event );
-  }
+  // @HostListener ( 'document:click', [ '$event' ] )
+  // zweiterKlickHandler ( event: MouseEvent ) {
+  //   console.log ( 'klick im doc', event );
+  // }
 
 }

@@ -48,7 +48,7 @@ export class UserComponent implements OnInit, OnChanges {
   ngOnChanges ( changes: SimpleChanges ): void {
     // debugger;
     if ( changes.user ) {
-      console.log ( (changes.user.currentValue as User).firstname );
+      // console.log ( (changes.user.currentValue as User).firstname );
     }
   }
 }
