@@ -1,11 +1,25 @@
 <!--The content below is only a placeholder and can be replaced.-->
 <div style="text-align:center">
   <h1>
-    Welcome to {{ title }}!
+    Welcome to {{ title | uppercase | reverse }}!
   </h1>
 </div>
 
 <msg-user-list></msg-user-list>
+
+<ul>
+  <li>{{createAt}}</li>
+  <li>{{createAt | date }}</li>
+  <li>{{createAt | date : 'long' }}</li>
+  <li>{{createAt | date : 'MMMM d, y, h:mm:ss a z'  : '+2' : 'en' }}</li>
+  <li>{{createAt | date : 'MMMM d, y, h:mm:ss a z'  : '+2' : 'fr' }}</li>
+  <li>{{createAt | date : 'long' | uppercase }}</li>
+  <li>{{num}}</li>
+  <li>{{num | number}}</li>
+  <li>{{num | number : '4.5-5' }}</li>
+  <li>{{num | number : '4.5-5' : 'fr' }}</li>
+  <li>{{num | number : '4.5-5' : 'en' }}</li>
+</ul>
 
 <button msgDanger msgGaEvent="Danger">Danger</button>
 <button msgDanger="mega-danger">Danger</button>

@@ -42,7 +42,7 @@ index, count, first, middle, last, even, odd
 <msg-user *ngFor="let user of users; even as e; odd as o"
 -->
 
-<msg-user *ngFor="let user of users; let e=even; let o=odd"
+<msg-user *ngFor="let user of users | reverse; let e=even; let o=odd"
           [ngClass]="{even: e, odd: o}"
           [user]="user"
           (userSelected)="selectUser( $event )"

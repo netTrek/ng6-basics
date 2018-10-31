@@ -6,5 +6,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
+  createAt = new Date();
+  num = Math.PI;
   title = 'msg';
 }
