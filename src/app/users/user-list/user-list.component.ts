@@ -9,12 +9,14 @@ import { MSG, MSG_CONF } from '../../app.token';
   styleUrls    : [ './user-list.component.scss' ]
 } )
 export class UserListComponent implements OnInit {
+  selectedUsr: User;
 
   constructor ( public $user: UserService, @Inject( MSG ) msg: string, @Inject( MSG_CONF ) msgConf: string[] ) {
     console.log( msg, msgConf );
   }
 
   ngOnInit (): void {
+    this.$user.selectedUsr.subscribe( next => this.selectedUsr = next );
   }
 
 

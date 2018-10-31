@@ -1,12 +1,13 @@
 import { Injectable } from '@angular/core';
 import { User } from './user';
+import { BehaviorSubject } from 'rxjs';
 
 @Injectable ( {
   providedIn: 'root'
 } )
 export class UserService {
 
-  selectedUsr: User;
+  selectedUsr: BehaviorSubject<User> = new BehaviorSubject(undefined);
 
   users: User[] = [
     { lastname: 'Ünlü', firstname: 'Saban', age: 44 },
@@ -18,8 +19,9 @@ export class UserService {
   }
 
   deleteUser ( user: User ) {
-    if ( user === this.selectedUsr ) {
-      this.selectedUsr = undefined;
+    if ( user === this.selectedUsr.getValue() ) {
+      // this.selectedUsr = undefined;
+      this.selectedUsr.next( undefined );
     }
     this.users.splice( this.users.indexOf(user), 1 );
   }
@@ -29,10 +31,12 @@ export class UserService {
   }
 
   selectUser ( user: User ) {
-    if ( user === this.selectedUsr ) {
-      this.selectedUsr = undefined;
+    if ( user === this.selectedUsr.getValue() ) {
+      // this.selectedUsr = undefined;
+      this.selectedUsr.next( undefined );
     } else {
-      this.selectedUsr = user;
+      // this.selectedUsr = user;
+      this.selectedUsr.next( user);
     }
   }
 

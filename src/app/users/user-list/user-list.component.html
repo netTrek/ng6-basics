@@ -10,8 +10,8 @@
 </ng-container>
 -->
 
-<ng-template [ngIf]="$user.selectedUsr" [ngIfElse]="noUser">
-  <h5>{{$user.selectedUsr.firstname}}{{$user.selectedUsr.lastname}}</h5>
+<ng-template [ngIf]="selectedUsr" [ngIfElse]="noUser">
+  <h5>{{selectedUsr.firstname}}{{selectedUsr.lastname}}</h5>
   <!--
   <input type="text" [value]="selectedUsr.firstname">
   -->
@@ -48,7 +48,7 @@ index, count, first, middle, last, even, odd
           (userSelected)="$user.selectUser( $event )"
           (deleteUser)="$user.deleteUser( $event )"
           (cloneUser)="$user.cloneUser( $event )"
-          [isSelected]="$user.selectedUsr === user"
+          [isSelected]="$user.selectedUsr.getValue() === user"
 >
 </msg-user>
 
