@@ -12,6 +12,9 @@ import localeFR from '@angular/common/locales/fr';
 
 import { registerLocaleData } from '@angular/common';
 import { MSG, MSG_CONF } from './app.token';
+import { HttpClientModule } from '@angular/common/http';
+import { HomeModule } from './home/home.module';
+import { ContactModule } from './contact/contact.module';
 
 registerLocaleData( localeDE );
 registerLocaleData( localeFR );
@@ -22,9 +25,12 @@ registerLocaleData( localeFR );
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     AppRoutingModule,
     UsersModule,
-    UtilsModule
+    HomeModule,
+    UtilsModule,
+    ContactModule
   ],
   providers: [
     {provide: LOCALE_ID, useValue: 'de'},

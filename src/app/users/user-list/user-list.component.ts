@@ -2,6 +2,7 @@ import { Component, HostListener, Inject, OnInit, ViewEncapsulation } from '@ang
 import { User } from '../user';
 import { UserService } from '../user.service';
 import { MSG, MSG_CONF } from '../../app.token';
+import { Router } from '@angular/router';
 
 @Component ( {
   selector     : 'msg-user-list',
@@ -9,22 +10,25 @@ import { MSG, MSG_CONF } from '../../app.token';
   styleUrls    : [ './user-list.component.scss' ]
 } )
 export class UserListComponent implements OnInit {
-  selectedUsr: User;
+  // selectedUsr: User;
 
-  constructor ( public $user: UserService, @Inject( MSG ) msg: string, @Inject( MSG_CONF ) msgConf: string[] ) {
+  constructor ( private $router: Router, public $user: UserService, @Inject( MSG ) msg: string, @Inject( MSG_CONF ) msgConf: string[] ) {
     console.log( msg, msgConf );
   }
 
   ngOnInit (): void {
-    this.$user.selectedUsr.subscribe( next => this.selectedUsr = next );
+    // this.$user.selectedUsr.subscribe( next => this.selectedUsr = next );
   }
 
-
+  goHome () {
+    this.$router.navigate( ['home'] );
+  }
 
 
   // @HostListener ( 'document:click', [ '$event' ] )
   // zweiterKlickHandler ( event: MouseEvent ) {
   //   console.log ( 'klick im doc', event );
   // }
+
 
 }

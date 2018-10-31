@@ -4,10 +4,13 @@
     Welcome to {{ title | uppercase | reverse }}!
   </h1>
 </div>
+<!--
 
-<msg-user *ngIf="$user.selectedUsr | async" [user]="$user.selectedUsr | async"></msg-user>
-
+<msg-user *ngIf="$user.selectedUsr" [user]="$user.selectedUsr"></msg-user>
 <msg-user-list></msg-user-list>
+-->
+
+
 <!--
 
 <ul>
@@ -32,5 +35,12 @@
 <!--
 <msg-countdown style="width: 100px; height: 50px"></msg-countdown>
 -->
+
+<nav>
+  <a routerLink="home" routerLinkActive="active">home</a> |
+  <a routerLink="contact" routerLinkActive="active">contact</a> |
+  <a routerLink="dash" routerLinkActive="active">dash</a> |
+  <a routerLink="users" routerLinkActive="active">users</a>
+</nav>
 
 <router-outlet></router-outlet>

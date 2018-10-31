@@ -20,7 +20,7 @@ export class AppComponent {
     // this.initNew ();
     // this.initNew2 ();
     // this.initSub ();
-    this.initBehaviourSub ();
+    // this.initBehaviourSub ();
     // this.initFromEvent ();
   }
 
