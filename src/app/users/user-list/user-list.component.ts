@@ -1,6 +1,7 @@
-import { Component, HostListener, OnInit, ViewEncapsulation } from '@angular/core';
+import { Component, HostListener, Inject, OnInit, ViewEncapsulation } from '@angular/core';
 import { User } from '../user';
 import { UserService } from '../user.service';
+import { MSG, MSG_CONF } from '../../app.token';
 
 @Component ( {
   selector     : 'msg-user-list',
@@ -9,7 +10,8 @@ import { UserService } from '../user.service';
 } )
 export class UserListComponent implements OnInit {
 
-  constructor ( public $user: UserService ) {
+  constructor ( public $user: UserService, @Inject( MSG ) msg: string, @Inject( MSG_CONF ) msgConf: string[] ) {
+    console.log( msg, msgConf );
   }
 
   ngOnInit (): void {

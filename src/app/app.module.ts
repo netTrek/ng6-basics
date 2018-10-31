@@ -11,6 +11,7 @@ import localeDE from '@angular/common/locales/de';
 import localeFR from '@angular/common/locales/fr';
 
 import { registerLocaleData } from '@angular/common';
+import { MSG, MSG_CONF } from './app.token';
 
 registerLocaleData( localeDE );
 registerLocaleData( localeFR );
@@ -26,7 +27,9 @@ registerLocaleData( localeFR );
     UtilsModule
   ],
   providers: [
-    {provide: LOCALE_ID, useValue: 'de'}
+    {provide: LOCALE_ID, useValue: 'de'},
+    {provide: MSG, useValue: 'angular rocks'},
+    {provide: MSG_CONF, useValue: 'config val1', multi: true }
   ],
   bootstrap: [AppComponent]
 })

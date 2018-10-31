@@ -1,0 +1,7 @@
+{
+  "users": [
+    { "id":1, "lastname": "Ünlü", "firstname": "Saban", "age": 44 },
+    { "id":2, "lastname": "Müller", "firstname": "Peter", "age": 33 },
+    { "id":3, "lastname": "Musterfrau", "firstname": "Heike", "age": 33 }
+  ]
+}
