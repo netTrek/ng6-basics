@@ -8,11 +8,13 @@ import { UserService } from '../user.service';
   styleUrls    : [ './user-list.component.scss' ]
 } )
 export class UserListComponent implements OnInit {
+  selectedUsr: User;
 
   constructor ( public $user: UserService ) {
   }
 
   ngOnInit (): void {
+    this.$user.selectedUsr.subscribe( next => this.selectedUsr = next );
   }
 
 

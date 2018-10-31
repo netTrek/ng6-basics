@@ -5,7 +5,7 @@
   </h1>
 </div>
 
-<h3 *ngIf="$user.selectedUsr">User Selected</h3>
+<msg-user *ngIf="$user.selectedUsr | async" [user]="$user.selectedUsr | async"></msg-user>
 
 <msg-user-list></msg-user-list>
 <!--
